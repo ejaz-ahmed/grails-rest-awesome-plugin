@@ -5,6 +5,7 @@ buildscript {
     repositories {
         mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
+//        maven {url "https://dl.bintray.com/troutbird/plugins"}
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
