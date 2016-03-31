@@ -66,7 +66,7 @@ class BookController extends AwesomeRestfulController {
 ```
 
 
-## What you will get?
+## What will you get?
 Here is sample output of curl request to this plugin.
 ```
 curl  http://localhost:8080/book
