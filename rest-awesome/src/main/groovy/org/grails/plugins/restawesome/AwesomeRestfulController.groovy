@@ -2,9 +2,9 @@ package org.grails.plugins.restawesome
 
 import grails.rest.RestfulController
 
-class AwesomeRestfulController<T> extends RestfulController <T>{
+class AwesomeRestfulController<T> extends RestfulController<T> {
 
-    AwesomeRestfulController(Class<T> resource){
+    AwesomeRestfulController(Class<T> resource) {
         super(resource)
     }
 
