@@ -4,35 +4,34 @@ import grails.rest.render.AbstractRenderer
 import grails.rest.render.ContainerRenderer
 import grails.rest.render.RenderContext
 import grails.util.GrailsWebUtil
-import org.grails.web.json.JSONWriter
 import grails.web.mime.MimeType
 import org.grails.plugins.restawesome.converter.ApiJSON
+import org.grails.web.json.JSONWriter
 
 /**
- * Created by ejaz on 3/16/16.
+ * @author ejaz
  */
-
 class ApiRendererJson<T> extends AbstractRenderer<T> {
     String label
 
-    public ApiRendererJson(Class<T> targetClass) {
-        super(targetClass, MimeType.JSON);
+    ApiRendererJson(Class<T> targetClass) {
+        super(targetClass, MimeType.JSON)
     }
 
     @Override
     void render(T object, RenderContext context) {
         context.setContentType(GrailsWebUtil.getContentType(MimeType.JSON.name, GrailsWebUtil.DEFAULT_ENCODING))
-        ApiJSON converter
+
         def out = context.writer
+
         JSONWriter writer = new JSONWriter(out)
-
-        converter = object as ApiJSON
-
         writer.object()
         writer.key(getLabel())
+
+        ApiJSON converter = object as ApiJSON
         converter.renderPartial(writer)
 
-        if(context.arguments?.paging) {
+        if (context.arguments?.paging) {
             writer.key("paging")
             converter = context.arguments.paging as ApiJSON
             converter.renderPartial(writer)
@@ -44,10 +43,10 @@ class ApiRendererJson<T> extends AbstractRenderer<T> {
     }
 
     String getLabel() {
-        if(label) {
+        if (label) {
             label
         }
-        else if(this instanceof ContainerRenderer) {
+        else if (this instanceof ContainerRenderer) {
             "entities"
         }
         else {
