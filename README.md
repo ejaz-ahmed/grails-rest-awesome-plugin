@@ -1,4 +1,4 @@
-# grails-rest-awesome-plugin - Sponsored by SaaSMax
+# grails-rest-awesome-plugin
 This plugin adds pagination support to the default REST response of grails applications.
 I've plan to add search and include/exclude fields in future.
 
@@ -102,7 +102,3 @@ curl  "http://localhost:8080/book?sort=price&order=asc"
 {"class":"demo.Book","id":1,"price":33.2,"title":"Grails in Action"}],
 "paging":{"totalCount":2,"currentMax":10,"curentOffset":0}}
 ```
-
-# About SaaSMax
-[SaaSMAX](https://saasmax.com) is the growth engine for SaaS companies and their resellers. Our mission is all about recurring SaaS commissions.
-
